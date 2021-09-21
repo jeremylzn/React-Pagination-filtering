@@ -1,0 +1,16 @@
+.btn {
+  border: 1px solid #87ceeb !important;
+  width: 85px;
+}
+
+@media screen and (min-width: 601px) {
+  body, html {
+    font-size: 1.1vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body, html {
+    font-size: 2vw;
+  }
+}
