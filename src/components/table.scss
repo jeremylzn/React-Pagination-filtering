@@ -3,14 +3,22 @@
   width: 85px;
 }
 
-@media screen and (min-width: 601px) {
-  body, html {
-    font-size: 1.1vw;
-  }
+.btn-sm{
+  width: 35px;
+}
+
+body, html {
+  font-size: 1.1vw;
 }
 
 @media screen and (max-width: 600px) {
   body, html {
     font-size: 2vw;
+  }
+  .btn {
+    width: 60px;
+  }
+  .btn-sm{
+    width: 35px!important;
   }
 }

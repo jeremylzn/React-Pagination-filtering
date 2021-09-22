@@ -69,15 +69,22 @@ export const BasicTable = ({ patients }: any) => {
                         </tbody>
                     </table>
                 </div>
+
                 <div className="container">
-                    <div className="row">
-                        <div className="col">
+                    {/* Previous page */}
+                    <button className="btn btn-light rounded-pill m-2" onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
+                    {pageIndex + 1 < pageOptions.length && <button className="btn btn-light rounded-pill btn-sm m-2" onClick={() => gotoPage(pageIndex + 1)}>{pageIndex + 1}</button>}
+                    {pageIndex + 2 < pageOptions.length &&<button className="btn btn-light rounded-pill btn-sm m-2" onClick={() => gotoPage(pageIndex + 2)}>{pageIndex + 2}</button>}
+                    {pageIndex + 3 < pageOptions.length && <button className="btn btn-light rounded-pill btn-sm m-2" onClick={() => gotoPage(pageIndex + 3)}>{pageIndex + 3}</button>}
+                    {pageIndex + 3 < pageOptions.length && <span> ... </span> }
+                    <button className="btn btn-light rounded-pill btn-sm m-2 text-center" onClick={() => gotoPage(pageOptions.length -1)}>{pageOptions.length}</button>
+                    {/* Next page */}
+                    <button className="btn btn-light rounded-pill m-2" onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
+                </div>
+
+                <div className="container mb-5">
                             {/* Jumping to first page */}
-                            <button className="btn btn-light" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
-                            {/* Previous page */}
-                            <button className="btn btn-light rounded-pill m-2" onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
-                        </div>
-                        <div className="col">
+                            <button className="btn btn-light m-2" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
                             {/* Display current page */}
                             <span>
                                 Page{' '}
@@ -94,14 +101,9 @@ export const BasicTable = ({ patients }: any) => {
                                         gotoPage(pageNumber)
                                     }} style={{ width: '50px' }} />
                             </span>
-                        </div>
-                        <div className="col">
-                            {/* Next page */}
-                            <button className="btn btn-light rounded-pill m-2" onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
                             {/* Jumping to last page */}
-                            <button className="btn btn-light" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
-                        </div>
-                    </div>
+                            <button className="btn btn-light m-2" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
+
                 </div>
             </div></>
     )
